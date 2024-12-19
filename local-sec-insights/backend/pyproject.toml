@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "llama-app-backend"
+version = "0.1.0"
+description = "Backend for Llama App"
+authors = ["Sourabh Desai <sourabhdesai@gmail.com>"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10,<3.12"
+fastapi = "^0.95.1"
+uvicorn = "^0.21.1"
+sqlalchemy = "^2.0.15"
+asyncpg = "^0.27.0"
+alembic = "^1.11.1"
+python-dotenv = "^1.0.0"
+httpx = "^0.24.0"
+pydantic = {extras = ["dotenv"], version = "^1.10.7"}
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.17.4"
+pytest = "^7.3.2"
+sseclient-py = "^1.7.2"
+pdfkit = "^1.0.0"
+fire = "^0.5.0"
+sec-edgar-downloader = "~5.0"
+pytickersymbols = "^1.13.0"
+awscli-local = "^0.20"
+
+[tool.poetry.scripts]
+start = "app.main:start"
+migrate_db = "app.main:migrate_db"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
